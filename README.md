@@ -1,1 +1,1 @@
-# stream-deck-build-iconpack-feather
+# streamdeck-build-iconpack-feather

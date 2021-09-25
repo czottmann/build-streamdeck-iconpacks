@@ -4,9 +4,9 @@
 # brew install csvtk fd jq sd slugify
 
 set -l options (fish_opt -s h -l help)
-set options $options (fish_opt -s b -l bg-color --long-only --required-val)
-set options $options (fish_opt -s n -l name --long-only --required-val)
-set options $options (fish_opt -s f -l fill-color --long-only)
+set options $options (fish_opt --short b --long bg-color --long-only --required-val)
+set options $options (fish_opt --short n --long name --long-only --required-val)
+set options $options (fish_opt --short f --long fill-color --long-only --optional-val)
 argparse $options -- $argv
 
 if set --query _flag_help
@@ -29,20 +29,20 @@ end
 
 # Modify SVG files
 set icon_folder "$build_folder/icons"
-echo -n "Writing SVG files "
+echo -n "- Creating build folder"
 mkdir -p "$icon_folder"
 
-for svg_file in src/*.svg
-  set output_file "$icon_folder/"(basename "$svg_file")
-  cat "$svg_file" \
-    | sd 'viewBox="[\d ]+"' 'viewBox="-5 -5 34 34"' \
-    | sd '("feather.+?">)' '$1<rect x="-50" y="-50" width="300" height="300" style="fill:'"$_flag_bg_color"';"/>' \
-    > "$output_file"
-  echo -n "."
+echo -n "- Writing SVG files"
+cp (ls src/*.svg) "$icon_folder/"
+set icon_files (ls "$icon_folder"/*.svg)
+sd 'viewBox="[\d ]+"' 'viewBox="-5 -5 34 34"' $icon_files
+sd '("feather.+?">)' '$1<rect x="-50" y="-50" width="300" height="300" style="fill:'$_flag_bg_color';"/>' \
+  $icon_files
+if set --query _flag_fill_color
+  sd ' fill="none"' ' fill="'"$_flag_fill_color"'"' $icon_files
 end
-echo
 
-# Build icons list
+echo "- Building icons list"
 set tmp_file "$build_folder/tmp.csv"
 echo "path" > "$tmp_file"
 fd --base-directory "$icon_folder" --extension svg >> "$tmp_file"
@@ -51,7 +51,7 @@ csvtk csv2json "$tmp_file" \
   > "$build_folder/icons.json"
 rm "$tmp_file"
 
-# Build manifest
+echo "- Building manifest"
 echo "{
   \"Author\": \"Carlo Zottmann\",
   \"Description\": \"$_flag_name\",
@@ -62,8 +62,9 @@ echo "{
   \"Tags\": \"\"
 }" > "$build_folder/manifest.json"
 
-# Move folder into Stream Deck territory
 set iconpack_folder "$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks/"(slugify "$_flag_name")".sdIconPack"
-echo "Moving icon pack to $iconpack_folder"
+echo "- Moving icon pack to $iconpack_folder"
 rm -rf "$iconpack_folder"
 mv "$build_folder" "$iconpack_folder"
+
+echo "- Done!"

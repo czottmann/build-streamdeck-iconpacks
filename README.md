@@ -4,10 +4,8 @@ This is a free icon pack for the [Elgato Stream Deck](https://www.elgato.com/en/
 based on the clear and concise [System UIcons](https://systemuicons.com/) by
 [Corey Ginnivan](https://corey.ginnivan.net/). Thanks, Corey!
 
-The pack consists of 420 monochrome icons. 23 icons come with red/green
-alternatives.
-
-The resulting icons are 144×144px PNG files.
+The pack consists of 420 monochrome icons (PNG, 144×144px). 23 of them come with
+red/green alternatives.
 
 ## Screenshot
 

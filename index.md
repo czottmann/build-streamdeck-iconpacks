@@ -5,10 +5,8 @@ with red/green alternatives.
 
 ## Download
 
-[Download the ZIP file `system-uicons-sdiconpack-x.x.zip`](https://github.com/carlo/streamdeck-iconpack-system-uicons/releases/latest)
-on Github.
-
-Then see section "How to install" below
+1. **[Download the ZIP file `system-uicons-sdiconpack-x.x.zip`](https://github.com/carlo/streamdeck-iconpack-system-uicons/releases/latest)** on Github.
+2. Then see section "How to install" below.
 
 ## Screenshot
 
@@ -16,12 +14,12 @@ Then see section "How to install" below
 
 ## How to install
 
-Extract the ZIP file to the `IconPacks/` directory in your local SD data folder. (On
-macOS, that's `$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks`,
-on Windows it's probably `C:\Users\you\AppData\Roaming\Elgato\StreamDeck\IconPacks`).
-Quit the Stream Deck software and restart it.
+1. Extract the downloaded ZIP file to the `IconPacks/` directory in your local SD data folder.✱
+2. Quit the Stream Deck software and restart it.
+3. The icon pack should now be available in your Stream Deck Icon Library.
 
-The icon pack should now be available in your Stream Deck Icon Library.
+✱) On macOS, that's `$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks`,
+on Windows it's probably `C:\Users\you\AppData\Roaming\Elgato\StreamDeck\IconPacks`.
 
 ## Why
 

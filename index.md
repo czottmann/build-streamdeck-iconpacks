@@ -11,7 +11,7 @@ The resulting icons are 144×144 PNG files.
 
 ## Screenshot
 
-![Screenshot of v1.1](img/screenshot-1.1.png)
+![Screenshot of v1.1](./img/screenshot-1.1.png)
 
 ## How to install
 

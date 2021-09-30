@@ -1,16 +1,20 @@
 The pack consists of 420 monochrome icons. 23 icons come with red/green
 alternatives. All icons are static PNG files with a size of 144×144px.
 
+## Download
+
+[Download the ZIP file `system-uicons-sdiconpack-x.x.zip`](https://github.com/carlo/streamdeck-iconpack-system-uicons/releases/latest)
+on Github.
+
+Then see section "How to install" below
+
 ## Screenshot
 
 ![Screenshot of v1.1](./img/screenshot-1.1.png)
 
-## Download & How to install
+## How to install
 
-Download the ZIP file named `system-uicons-sdiconpack-x.x.zip` on
-[Github](https://github.com/carlo/streamdeck-iconpack-system-uicons/releases/latest).
-
-Extract it to the `IconPacks/` directory in your local SD data folder. (On
+Extract the ZIP file to the `IconPacks/` directory in your local SD data folder. (On
 macOS, that's `$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks`,
 on Windows it's probably `C:\Users\you\AppData\Roaming\Elgato\StreamDeck\IconPacks`).
 Quit the Stream Deck software and restart it.

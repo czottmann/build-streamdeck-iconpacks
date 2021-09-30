@@ -1,22 +1,57 @@
-#!/opt/homebrew/bin/fish
-
-# Dependencies:
-# brew install csvtk fd jq sd slugify librsvg
+#!/usr/bin/env fish
 
 set iconpack_name "System UIcons"
+set iconpack_version (cat VERSION.txt | string trim)
+
+function ask_for_confirmation
+  argparse q/question -- $argv
+  or return
+
+  if set -q _flag_question
+    while true
+      read --local --prompt-str "❓ $argv[1] [y/N] " answer
+      switch $answer
+        case Y y
+          return 0
+        case '' N n
+          return 1
+        end
+    end
+  end
+end
+
+
+echo "Preparing to build Stream Deck icon pack \"$iconpack_name\""
+echo
+
+if not ask_for_confirmation --question "Version $iconpack_version, correct?"
+  set iconpack_version (math $iconpack_version + 0.1)
+  if ask_for_confirmation --question "Bump version to $iconpack_version?"
+    echo "- Bumping version to $iconpack_version"
+    echo $iconpack_version > VERSION.txt
+    git commit -m "[CHG] Bumps version" VERSION.txt
+  else
+    echo "Exiting"
+    exit 1
+  end
+end
+
 
 # Setup folders
-set build_folder "./build"
-set icon_folder "$build_folder/icons"
-set src_folder "./src"
-set tmp_folder "./tmp"
+set iconpack_folder_name (slugify "$iconpack_name")".sdIconPack"
+set build_folder (pwd)"/build"
+set target_folder "$build_folder/$iconpack_folder_name"
+set icon_folder "$target_folder/icons"
+set src_folder (pwd)"/src"
+set tmp_folder (pwd)"/tmp"
+set dist_folder (pwd)"/dist"
 
 echo "- Setting up folders"
 rm -rf "$build_folder" "$tmp_folder" "$src_folder" >/dev/null 2>&1
-mkdir -p "$build_folder" "$icon_folder" "$tmp_folder" "$src_folder"
+mkdir -p "$target_folder" "$icon_folder" "$tmp_folder" "$src_folder"
 
 
-echo "- Downloading icons from website"
+echo "- Downloading icons from https://systemuicons.com/"
 set zip_file "$tmp_folder/system_icons.zip"
 curl --silent "https://systemuicons.com/images/System%20UIcons.zip" -o "$zip_file"
 unzip -jq "$zip_file" -d "$src_folder"
@@ -79,7 +114,7 @@ echo "path" > "$tmp_file"
 fd --base-directory "$icon_folder" --extension png >> "$tmp_file"
 csvtk csv2json "$tmp_file" \
   | jq 'map({ path, name: (.path | sub(".png"; "") | gsub("_+"; " ")), tags: [] })' \
-  > "$build_folder/icons.json"
+  > "$target_folder/icons.json"
 
 
 echo "- Building manifest"
@@ -88,15 +123,33 @@ echo "{
   \"Description\": \"$iconpack_name\",
   \"Name\": \"$iconpack_name\",
   \"URL\": \"https://streamdeck-iconpacks.czm.io\",
-  \"Version\": \"1.1\",
+  \"Version\": \"$version\",
   \"Icon\": \"icons/create.png\",
   \"Tags\": \"\"
-}" > "$build_folder/manifest.json"
+}" > "$target_folder/manifest.json"
 
 
-set iconpack_folder "$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks/"(slugify "$iconpack_name")".sdIconPack"
-echo "- Moving icon pack to $iconpack_folder"
-rm -rf "$iconpack_folder"
-mv "$build_folder" "$iconpack_folder"
+if ask_for_confirmation --question "Copy pack into SD IconPacks/ folder?  (This will overwrite an existing $iconpack_folder_name pack!)"
+  set sd_data_folder "$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks/$iconpack_folder_name"
+  echo "- Copying icon pack to $sd_data_folder"
+  rm -rf "$sd_data_folder"
+  cp -R "$target_folder" "$sd_data_folder"
+end
+
+if ask_for_confirmation --question "Build release $iconpack_version?"
+  echo "- Creating archive $zip_file"
+  cd "$build_folder"
+  set release_name (slugify "$iconpack_name")"-$iconpack_version"
+  set zip_file "$release_name.zip"
+  zip --quiet --recurse-paths -9 "$zip_file" "$iconpack_folder_name"
+
+  echo "- Moving $zip_file into dist/ folder"
+  mv "$zip_file" "$dist_folder"
+end
+
+# TODO: Ask to update website
+
+echo "- Cleaning up working folders"
+rm -rf "$build_folder" "$tmp_folder" "$src_folder" >/dev/null 2>&1
 
 echo "- Done!"

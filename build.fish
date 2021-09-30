@@ -139,7 +139,7 @@ end
 if ask_for_confirmation --question "Build release $iconpack_version?"
   echo "- Creating archive $zip_file"
   cd "$build_folder"
-  set release_name (slugify "$iconpack_name")"-$iconpack_version"
+  set release_name (slugify "$iconpack_folder_name")"-$iconpack_version"
   set zip_file "$release_name.zip"
   zip --quiet --recurse-paths -9 "$zip_file" "$iconpack_folder_name"
 

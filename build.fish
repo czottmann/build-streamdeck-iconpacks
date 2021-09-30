@@ -123,7 +123,7 @@ echo "{
   \"Description\": \"$iconpack_name\",
   \"Name\": \"$iconpack_name\",
   \"URL\": \"https://streamdeck-iconpacks.czm.io\",
-  \"Version\": \"$version\",
+  \"Version\": \"$iconpack_version\",
   \"Icon\": \"icons/create.png\",
   \"Tags\": \"\"
 }" > "$target_folder/manifest.json"

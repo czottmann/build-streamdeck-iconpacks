@@ -1,4 +1,4 @@
-# Stream Deck iconpack: System Uicons
+# Stream Deck iconpack: System UIcons
 
 This is a free iconpack for the [Elgato Stream Deck](https://www.elgato.com/en/stream-deck),
 based on the clear and concise [System UIcons](https://systemuicons.com/) by

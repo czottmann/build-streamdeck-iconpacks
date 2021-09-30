@@ -1,13 +1,13 @@
-# Stream Deck iconpack: System UIcons
+# Stream Deck icon pack: System UIcons
 
-This is a free iconpack for the [Elgato Stream Deck](https://www.elgato.com/en/stream-deck),
+This is a free icon pack for the [Elgato Stream Deck](https://www.elgato.com/en/stream-deck),
 based on the clear and concise [System UIcons](https://systemuicons.com/) by
 [Corey Ginnivan](https://corey.ginnivan.net/). Thanks, Corey!
 
 The pack consists of 420 monochrome icons. 23 icons come with red/green
 alternatives.
 
-The resulting icons are 144×144 PNG files.
+The resulting icons are 144×144px PNG files.
 
 ## Screenshot
 
@@ -23,7 +23,7 @@ Windows it's probably `C:\Users\you\AppData\Roaming\Elgato\StreamDeck\IconPacks`
 ## Why
 
 I like clean, "readable" icons, preferrably on a black background. I'm over 40,
-maybe there's a relation, what do I know.
+maybe there's a relation, what do I know. `¯\_(ツ)_/¯`
 
 ## Build a new version of the icon pack
 

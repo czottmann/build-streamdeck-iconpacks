@@ -1,37 +1,14 @@
-## Welcome to GitHub Pages
+# Stream Deck iconpack: System UIcons
 
-You can use the [editor on GitHub](https://github.com/carlo/streamdeck-iconpack-system-uicons/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This is a free iconpack for the [Elgato Stream Deck](https://www.elgato.com/en/stream-deck),
+based on the clear and concise [System UIcons](https://systemuicons.com/) by
+[Corey Ginnivan](https://corey.ginnivan.net/). Thanks, Corey!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The pack consists of 420 monochrome icons. 23 icons come with red/green
+alternatives.
 
-### Markdown
+The resulting icons are 144×144 PNG files.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Screenshot
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/carlo/streamdeck-iconpack-system-uicons/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+![Screenshot of v1.1](dist/screenshot-1.1.png)

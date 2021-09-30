@@ -17,7 +17,8 @@ The resulting icons are 144×144 PNG files.
 
 Check the [`dist/`](dist/) folder, download the latest version of the ZIP file,
 extract to the `IconPacks/` directory in your local SD data folder. On macOS,
-that's `$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks`.
+that's `$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks`, on
+Windows it's probably `C:\Users\you\AppData\Roaming\Elgato\StreamDeck\IconPacks`.
 
 ## Why
 

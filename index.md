@@ -1,5 +1,7 @@
-The pack consists of 420 monochrome icons. 23 icons come with red/green
-alternatives. All icons are static PNG files with a size of 144×144px.
+<script async defer data-website-id="983a2928-5de1-46ad-a87c-3da0c9765578" src="https://carlo-umami.herokuapp.com/umami.js"></script>
+
+This icon pack consists of 420 monochrome icons (PNG, 144×144px). 23 icons come
+with red/green alternatives.
 
 ## Download
 

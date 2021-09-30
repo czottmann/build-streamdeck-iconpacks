@@ -26,3 +26,15 @@ build whatever is needed, copy the resulting icon pack into the local SD
 ## Install dependencies
 
 Run `brew install csvtk fd fish jq sd slugify librsvg`.
+
+## Authors & License
+
+This repository as well as the relatved icon packs are
+[MIT licensed](LICENSE.md) by Carlo Zottmann ([website](https://czm.io),
+[Github](https://github.com/carlo)).
+
+The original [System UIcons](https://systemuicons.com/)
+([Github](https://github.com/CoreyGinnivan/system-uicons)) by
+[Corey Ginnivan](https://corey.ginnivan.net/) are released under
+[The Unlicense](https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE).
+I'd like to thank Corey for his generous work.

@@ -1,4 +1,4 @@
-<script async defer data-website-id="983a2928-5de1-46ad-a87c-3da0c9765578" src="https://carlo-umami.herokuapp.com/umami.js"></script>
+<script async defer data-website-id="1a2bb762-f88a-488b-9376-80652abd7ad6" src="https://carlo-umami.herokuapp.com/umami.js"></script>
 
 This icon pack consists of 420 monochrome icons (PNG, 144×144px). 23 icons come
 with red/green alternatives.

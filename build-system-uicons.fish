@@ -100,7 +100,12 @@ sd '"currentColor"' '"#0f0"' (ls "$icon_folder"/*__green.svg)
 echo "- Converting SVG build files to PNG"
 set icon_files (ls "$icon_folder"/*.svg)
 for F in $icon_files
-  rsvg-convert --height 144 "$F" > (string replace ".svg" ".png" "$F")
+  rsvg-convert \
+    --format png \
+    --height 144 \
+    --keep-aspect-ratio \
+    --output (string replace ".svg" ".png" "$F") \
+    "$F"
 end
 
 

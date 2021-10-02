@@ -9,7 +9,7 @@ red/green alternatives.
 
 ## Screenshot
 
-![Screenshot of v1.1](dist/screenshot-1.1.png)
+![Screenshot of v1.1](dist/streamdeck-iconpack-system-uicons.png)
 
 ## If you're only interested in the icon pack
 

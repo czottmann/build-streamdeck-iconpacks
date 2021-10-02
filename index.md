@@ -5,8 +5,8 @@ with red/green alternatives.
 
 ## Download
 
-1. **[Download the ZIP file `system-uicons-sdiconpack-x.x.zip`](https://github.com/carlo/streamdeck-iconpack-system-uicons/releases/latest)** on Github.
-2. Then see section "How to install" below.
+1. **Download the `Source code (zip)` file [from its Github page](https://github.com/carlo/streamdeck-iconpack-system-uicons/releases/latest)**.
+2. Follow the section "How to install" below.
 
 ## Screenshot
 
@@ -14,9 +14,10 @@ with red/green alternatives.
 
 ## How to install
 
-1. Extract the downloaded ZIP file to the `IconPacks/` directory in your local SD data folder.✱
-2. Quit the Stream Deck software and restart it.
-3. The icon pack should now be available in your Stream Deck Icon Library.
+1. Extract the downloaded ZIP file. Find the contained folder named `system-uicons.sdIconPack`.
+2. Move `system-uicons.sdIconPack` into the `IconPacks/` directory in your local SD data folder.✱
+3. Quit the Stream Deck software and restart it.
+4. The icon pack should now be available in your Stream Deck Icon Library.
 
 ✱) On macOS, that's `$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks`,
 on Windows it's probably `C:\Users\you\AppData\Roaming\Elgato\StreamDeck\IconPacks`.
@@ -29,7 +30,7 @@ maybe there's a relation, what do I know. `¯\_(ツ)_/¯`
 ## Authors & License
 
 This icon pack and its [underlying repository](https://github.com/carlo/streamdeck-iconpack-system-uicons)
-are [MIT licensed](https://github.com/carlo/streamdeck-iconpack-system-uicons/blob/main/LICENSE.md)
+are [MIT licensed](https://github.com/carlo/streamdeck-iconpack-system-uicons/blob/main/system-uicons.sdIconPack/LICENSE.md)
 by Carlo Zottmann ([website](https://zottmann.org),
 [Github](https://github.com/carlo)).
 

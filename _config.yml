@@ -1,3 +1,5 @@
 theme: jekyll-theme-cayman
 title: Stream Deck iconpack "System UIcons"
 description: A free iconpack for the Elgato Stream Deck, based on the clear, concise and free System UIcons.
+github:
+  is_project_page: false

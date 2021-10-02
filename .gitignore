@@ -1,3 +1,4 @@
-tmp/
-src/
 .DS_Store
+build/
+src/
+tmp/

@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 set iconpack_name "System UIcons"
-set iconpack_version (cat VERSION.txt | string trim)
+set iconpack_version (cat version.system-uicons.txt | string trim)
 
 function ask_for_confirmation
   argparse q/question -- $argv
@@ -44,7 +44,7 @@ set target_folder "$build_folder/$iconpack_folder_name"
 set icon_folder "$target_folder/icons"
 set src_folder (pwd)"/src"
 set tmp_folder (pwd)"/tmp"
-set dist_folder (pwd)"/dist"
+set dist_folder (pwd)"/dist/streamdeck-iconpack-system-uicons/$iconpack_folder_name"
 
 echo "- Setting up folders"
 rm -rf "$build_folder" "$tmp_folder" "$src_folder" >/dev/null 2>&1
@@ -141,15 +141,10 @@ if ask_for_confirmation --question "Copy pack into SD IconPacks/ folder?  (This 
   cp -R "$target_folder" "$sd_data_folder"
 end
 
-if ask_for_confirmation --question "Build release $iconpack_version?"
-  echo "- Creating archive $zip_file"
-  cd "$build_folder"
-  set release_name (slugify "$iconpack_folder_name")"-$iconpack_version"
-  set zip_file "$release_name.zip"
-  zip --quiet --recurse-paths -9 "$zip_file" "$iconpack_folder_name"
-
-  echo "- Moving $zip_file into dist/ folder"
-  mv "$zip_file" "$dist_folder"
+if ask_for_confirmation --question "Copy pack into dist/ folder?"
+  echo "- Copying icon pack to $dist_folder"
+  rm -rf $dist_folder/*.json "$dist_folder/icons"
+  cp -R "$target_folder/"* "$dist_folder/"
 end
 
 # TODO: Ask to update website

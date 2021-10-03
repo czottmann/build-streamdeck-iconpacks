@@ -1,7 +1,8 @@
 #!/usr/bin/env fish
 
 set iconpack_name "System UIcons"
-set iconpack_version (cat version.system-uicons.txt | string trim)
+set version_file version.system-uicons.txt
+set iconpack_version (cat $version_file | string trim)
 
 function ask_for_confirmation
   argparse q/question -- $argv
@@ -28,8 +29,8 @@ if not ask_for_confirmation --question "Version $iconpack_version, correct?"
   set iconpack_version (math $iconpack_version + 0.1)
   if ask_for_confirmation --question "Bump version to $iconpack_version?"
     echo "- Bumping version to $iconpack_version"
-    echo $iconpack_version > VERSION.txt
-    git commit -m "[CHG] Bumps version" VERSION.txt
+    echo $iconpack_version > $version_file
+    git commit -m "[CHG] Bumps version" $version_file
   else
     echo "Exiting"
     exit 1

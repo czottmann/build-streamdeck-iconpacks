@@ -144,8 +144,9 @@ end
 
 if ask_for_confirmation --question "Copy pack into dist/ folder?"
   echo "- Copying icon pack to $dist_folder"
-  rm -rf $dist_folder/*.json "$dist_folder/icons"
-  cp -R "$target_folder/"* "$dist_folder/"
+  rm -rf $dist_folder/* >/dev/null 2>&1
+  cp -R $target_folder/* $dist_folder/
+  cp $dist_folder/../LICENSE.md $dist_folder/
 end
 
 # TODO: Ask to update website

@@ -1,3 +1,6 @@
 [submodule "dist/streamdeck-iconpack-system-uicons"]
 	path = dist/streamdeck-iconpack-system-uicons
 	url = git@github.com:carlo/streamdeck-iconpack-system-uicons.git
+[submodule "dist/streamdeck-iconpack-fluentui-system-icons"]
+	path = dist/streamdeck-iconpack-fluentui-system-icons
+	url = git@github.com:carlo/streamdeck-iconpack-fluentui-system-icons.git

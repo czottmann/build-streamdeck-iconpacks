@@ -1,26 +1,10 @@
 #!/usr/bin/env fish
 
+source ./_functions.fish
+
 set iconpack_name "System UIcons"
 set version_file version.system-uicons.txt
 set iconpack_version (cat $version_file | string trim)
-
-function ask_for_confirmation
-  argparse q/question -- $argv
-  or return
-
-  if set -q _flag_question
-    while true
-      read --local --prompt-str "❓ $argv[1] [y/N] " answer
-      switch $answer
-        case Y y
-          return 0
-        case '' N n
-          return 1
-        end
-    end
-  end
-end
-
 
 echo "Preparing to build Stream Deck icon pack \"$iconpack_name\""
 echo
@@ -100,13 +84,8 @@ sd '"currentColor"' '"#0f0"' (ls "$icon_folder"/*__green.svg)
 
 echo "- Converting SVG build files to PNG"
 set icon_files (ls "$icon_folder"/*.svg)
-for F in $icon_files
-  rsvg-convert \
-    --format png \
-    --height 144 \
-    --keep-aspect-ratio \
-    --output (string replace ".svg" ".png" "$F") \
-    "$F"
+for svg_file in $icon_files
+  convert_svg_to_png --file $svg_file
 end
 
 
@@ -115,12 +94,7 @@ rm $icon_files
 
 
 echo "- Building icons list"
-set tmp_file "$tmp_folder/icons.csv"
-echo "path" > "$tmp_file"
-fd --base-directory "$icon_folder" --extension png >> "$tmp_file"
-csvtk csv2json "$tmp_file" \
-  | jq 'map({ path, name: (.path | sub(".png"; "") | gsub("_+"; " ")), tags: [] })' \
-  > "$target_folder/icons.json"
+png_list_to_json --folder "$icon_folder" > "$target_folder/icons.json"
 
 
 echo "- Building manifest"

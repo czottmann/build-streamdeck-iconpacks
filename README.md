@@ -1,37 +1,12 @@
-# Stream Deck icon pack: System UIcons
+# Stream Deck icon pack builder
 
-This is a free icon pack for the [Elgato Stream Deck](https://www.elgato.com/en/stream-deck),
-based on the clear and concise [System UIcons](https://systemuicons.com/) by
-[Corey Ginnivan](https://corey.ginnivan.net/). Thanks, Corey!
+## Build "System UIcons" pack
 
-The pack consists of 420 monochrome icons (PNG, 144×144px). 23 of them come with
-red/green alternatives.
-
-## Screenshot
-
-![Screenshot of v1.1](dist/streamdeck-iconpack-system-uicons.png)
-
-## If you're only interested in the icon pack
-
-Check the [`dist/`](dist/) folder, download the latest version of the ZIP file,
-extract to the `IconPacks/` directory in your local SD data folder. On macOS,
-that's `$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks`, on
-Windows it's probably `C:\Users\you\AppData\Roaming\Elgato\StreamDeck\IconPacks`.
-
-## Why
-
-I like clean, "readable" icons, preferrably on a black background. I'm over 40,
-maybe there's a relation, what do I know. `¯\_(ツ)_/¯`
-
-## Build a new version of the icon pack
-
-Run [`build.fish`](build.fish). Yes, it's a [fish](https://fishshell.com/)
-script, meaning your machine needs to have it installed. There's a reason for
-this decision, namely _"I like fish"_. 😉
+Run [`build-system-uicons.fish`](build-system-uicons.fish).
 
 The script will download the current version of System UIcons from the web,
 build whatever is needed, copy the resulting icon pack into the local SD
-`IconPacks/` data directory (optional), create a release file in
+`IconPacks/` data directory (optional), update the submodule folder in
 [`dist/`](dist/) (optional) and clean up after itself.
 
 ## Install dependencies
@@ -40,12 +15,5 @@ Run `brew install csvtk fd fish jq sd slugify librsvg`.
 
 ## Authors & License
 
-This repository as well as the relatved icon packs are
-[MIT licensed](LICENSE.md) by Carlo Zottmann ([website](https://czm.io),
-[Github](https://github.com/carlo)).
-
-The original [System UIcons](https://systemuicons.com/)
-([Github](https://github.com/CoreyGinnivan/system-uicons)) by
-[Corey Ginnivan](https://corey.ginnivan.net/) are released under
-[The Unlicense](https://github.com/CoreyGinnivan/system-uicons/blob/master/LICENSE).
-I'd like to thank Corey for his generous work.
+Carlo Zottmann ([website](https://czm.io), [Github](https://github.com/carlo)).
+[MIT licensed](LICENSE.md).

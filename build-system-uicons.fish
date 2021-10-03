@@ -25,26 +25,26 @@ end
 # Setup folders
 set iconpack_folder_name (slugify "$iconpack_name")".sdIconPack"
 set build_folder (pwd)"/build"
-set target_folder "$build_folder/$iconpack_folder_name"
-set icon_folder "$target_folder/icons"
 set src_folder (pwd)"/src"
 set tmp_folder (pwd)"/tmp"
+set target_folder "$build_folder/$iconpack_folder_name"
+set icon_folder "$target_folder/icons"
 set dist_folder (pwd)"/dist/streamdeck-iconpack-system-uicons/$iconpack_folder_name"
 
 echo "- Setting up folders"
-rm -rf "$build_folder" "$tmp_folder" "$src_folder" >/dev/null 2>&1
-mkdir -p "$target_folder" "$icon_folder" "$tmp_folder" "$src_folder"
+rm -rf $build_folder $tmp_folder $src_folder >/dev/null 2>&1
+mkdir -p $target_folder $icon_folder $tmp_folder $src_folder
 
 
 echo "- Downloading icons from https://systemuicons.com/"
-set zip_file "$tmp_folder/system_icons.zip"
-curl --silent "https://systemuicons.com/images/System%20UIcons.zip" -o "$zip_file"
-unzip -jq "$zip_file" -d "$src_folder"
+set zip_file $tmp_folder/system_icons.zip
+curl --silent "https://systemuicons.com/images/System%20UIcons.zip" -o $zip_file
+unzip -jq $zip_file -d $src_folder
 
 
 echo "- Writing SVG build files"
-cp (ls "$src_folder"/*.svg) "$icon_folder/"
-sd '"currentColor"' '"#fff"' (ls "$icon_folder"/*.svg)
+cp (ls $src_folder/*.svg) $icon_folder/
+sd '"currentColor"' '"#fff"' (ls $icon_folder/*.svg)
 
 set extra_icons_red $src_folder/bell_disabled.svg \
                     $src_folder/camera_noflash_alt.svg \
@@ -63,9 +63,9 @@ set extra_icons_red $src_folder/bell_disabled.svg \
                     $src_folder/warning_hex.svg \
                     $src_folder/warning_triangle.svg \
                     $src_folder/wifi_none.svg
-for F in $extra_icons_red
-  set --local new_name (string replace ".svg" "__red.svg" (basename "$F"))
-  cp "$F" "$icon_folder/$new_name"
+for svg_file in $extra_icons_red
+  set --local svg_red (string replace ".svg" "__red.svg" (basename "$svg_file"))
+  cp $svg_file $icon_folder/$svg_red
 end
 sd '"currentColor"' '"#f00"' (ls "$icon_folder"/*__red.svg)
 
@@ -75,15 +75,15 @@ set extra_icons_green $src_folder/info_circle.svg \
                       $src_folder/check_circle_outside.svg \
                       $src_folder/checkbox_checked.svg \
                       $src_folder/clipboard_check.svg
-for F in $extra_icons_green
-  set --local new_name (string replace ".svg" "__green.svg" (basename "$F"))
-  cp "$F" "$icon_folder/$new_name"
+for svg_file in $extra_icons_green
+  set --local svg_green (string replace ".svg" "__green.svg" (basename "$svg_file"))
+  cp $svg_file $icon_folder/$svg_green
 end
-sd '"currentColor"' '"#0f0"' (ls "$icon_folder"/*__green.svg)
+sd '"currentColor"' '"#0f0"' (ls $icon_folder/*__green.svg)
 
 
 echo "- Converting SVG build files to PNG"
-set icon_files (ls "$icon_folder"/*.svg)
+set icon_files (ls $icon_folder/*.svg)
 for svg_file in $icon_files
   convert_svg_to_png --file $svg_file
 end
@@ -94,7 +94,7 @@ rm $icon_files
 
 
 echo "- Building icons list"
-png_list_to_json --folder "$icon_folder" > "$target_folder/icons.json"
+png_list_to_json --folder $icon_folder > $target_folder/icons.json
 
 
 echo "- Building manifest"
@@ -106,14 +106,14 @@ echo "{
   \"Version\": \"$iconpack_version\",
   \"Icon\": \"icons/create.png\",
   \"Tags\": \"\"
-}" > "$target_folder/manifest.json"
+}" > $target_folder/manifest.json
 
 
 if ask_for_confirmation --question "Copy pack into SD IconPacks/ folder?  (This will overwrite an existing $iconpack_folder_name pack!)"
   set sd_data_folder "$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks/$iconpack_folder_name"
   echo "- Copying icon pack to $sd_data_folder"
-  rm -rf "$sd_data_folder"
-  cp -R "$target_folder" "$sd_data_folder"
+  rm -rf $sd_data_folder
+  cp -R $target_folder $sd_data_folder
 end
 
 if ask_for_confirmation --question "Copy pack into dist/ folder?"
@@ -126,6 +126,6 @@ end
 # TODO: Ask to update website
 
 echo "- Cleaning up working folders"
-rm -rf "$build_folder" "$tmp_folder" "$src_folder" >/dev/null 2>&1
+rm -rf $build_folder $tmp_folder $src_folder >/dev/null 2>&1
 
 echo "- Done!"

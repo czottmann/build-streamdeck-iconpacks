@@ -39,7 +39,7 @@ end
 function convert_all_svg_files_to_png
   set icon_files $argv
 
-  echo "- Converting" (count $argv) "SVG build files to PNG"
+  echo "- Converting" (count $icon_files) "SVG build files to PNG"
   for svg_file in $icon_files
     convert_svg_to_png --file $svg_file
   end

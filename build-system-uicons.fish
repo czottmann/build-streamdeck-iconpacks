@@ -13,12 +13,20 @@ setup_working_folders
 
 echo "- Downloading icons from https://systemuicons.com/"
 set zip_file $tmp_folder/system_icons.zip
-curl --silent "https://systemuicons.com/images/System%20UIcons.zip" -o $zip_file
+curl --silent \
+  "https://systemuicons.com/images/System%20UIcons.zip" \
+  --output $zip_file
+
+
+echo "- Extracting icons from downloaded archive"
 unzip -jq $zip_file -d $src_folder
 
 
 echo "- Writing SVG build files"
 cp (ls $src_folder/*.svg) $build_dest_icon_folder/
+
+
+echo "- Working SVG files"
 sd '"currentColor"' '"#fff"' (ls $build_dest_icon_folder/*.svg)
 
 set extra_icons_red $src_folder/bell_disabled.svg \
@@ -64,9 +72,9 @@ remove_all_svg_build_files $icon_files
 create_icons_json_file
 create_manifest_json_file \
   --author "Carlo Zottmann (icon pack), Corey Ginnivan (original System UIcons)" \
-  --desc "This is a free Stream Deck icon pack, based on the System UIcons iconset by Corey Ginnivan." \
+  --desc "A free icon pack based on the Corey Ginnivan' System UIcons iconset.  Consists of "(count $icon_files)" icons." \
   --icon 'icons/create.png' \
-  --tags ''
+  --tags 'system uicons'
 
 optional_copy_to_local_sd_folder
 optional_copy_to_dist_folder

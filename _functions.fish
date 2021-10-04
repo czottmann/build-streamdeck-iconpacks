@@ -17,11 +17,11 @@ end
 
 
 function confirm_current_version
-  set sdip_version_file "version.$sdip_slug.txt"
-  set sdip_version (cat $sdip_version_file | string trim)
+  set --local sdip_version_file "version.$sdip_slug.txt"
+  set --local sdip_version (cat $sdip_version_file | string trim)
 
   if not ask_for_confirmation --question "Version $sdip_version, correct?"
-    set sdip_version (math $sdip_version + 0.1)
+    set --local sdip_version (math $sdip_version + 0.1)
     if ask_for_confirmation --question "Bump version to $sdip_version?"
       echo "- Bumping version to $sdip_version"
       echo $sdip_version > $sdip_version_file
@@ -37,38 +37,70 @@ end
 
 
 function convert_all_svg_files_to_png
-  set icon_files $argv
+  argparse 'padding=+' -- $argv
+  or return
+
+  set --local icon_files $argv
 
   echo "- Converting" (count $icon_files) "SVG build files to PNG"
-  for svg_file in $icon_files
-    convert_svg_to_png --file $svg_file
+  if set -q _flag_padding
+    for svg_file in $icon_files
+      convert_svg_to_png --file $svg_file --padding $_flag_padding
+    end
+  else
+    for svg_file in $icon_files
+      convert_svg_to_png --file $svg_file
+    end
   end
+  echo
 end
 
 
 function convert_svg_to_png
-  argparse 'f/file=' -- $argv
+  argparse 'file=+' 'padding=+' -- $argv
   or return
 
-  rsvg-convert \
-    --format png \
-    --keep-aspect-ratio \
-    --output (string replace '.svg' '.png' "$_flag_file") \
-    --width 144 \
-    $_flag_file
+  set --local png_file (string replace '.svg' '.png' "$_flag_file")
+  set --local width 144
+
+  if set -q _flag_padding
+    rsvg-convert \
+      --format png \
+      --keep-aspect-ratio \
+      --output $png_file \
+      --width (math "$width - $_flag_padding * 2") \
+      $_flag_file
+    convert \
+      -background none \
+      -gravity center \
+      -extent $width"x"$width \
+      $png_file \
+      $png_file.new
+    mv $png_file.new $png_file
+    echo -n ':'
+  else
+    rsvg-convert \
+      --format png \
+      --keep-aspect-ratio \
+      --output $png_file \
+      --width $width \
+      $_flag_file
+    echo -n '.'
+  end
 end
 
 
 function create_icons_json_file
   echo "- Creating icons.json file"
 
-  test -d tmp/ || mkdir tmp/
-  set --local tmp_file tmp/icons.csv
+  set --local tmp_file $tmp_folder/icons.csv
 
-  echo "path" > $tmp_file
+  echo "_path" > $tmp_file
   fd --base-directory $build_dest_icon_folder --extension png >> $tmp_file
+  sort $tmp_file > $tmp_file.new
+  mv $tmp_file.new $tmp_file
   csvtk csv2json $tmp_file \
-    | jq 'map({ path, name: (.path | sub(".png"; "") | gsub("_+"; " ")), tags: [] })' \
+    | jq 'map({ path: ._path, name: (._path | sub(".png"; "") | gsub("_+"; " ")), tags: [] })' \
     > $build_dest_folder/icons.json
 end
 
@@ -104,7 +136,7 @@ end
 
 function optional_copy_to_local_sd_folder
   if ask_for_confirmation --question "Copy pack into SD IconPacks/ folder, possibly overwriting existing?"
-    set sd_data_folder "$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks/$dest_folder_name"
+    set --local sd_data_folder "$HOME/Library/Application Support/com.elgato.StreamDeck/IconPacks/$dest_folder_name"
     echo "- Copying icon pack to $sd_data_folder"
     rm -rf $sd_data_folder
     cp -R $build_dest_folder $sd_data_folder

@@ -168,7 +168,7 @@ function setup_folder_variables
   set --global build_folder (pwd)"/build/$sdip_slug"
   set --global build_dest_folder "$build_folder/$dest_folder_name"
   set --global build_dest_icon_folder "$build_folder/$dest_folder_name/icons"
-  set --global release_folder (pwd)"/dist/streamdeck-iconpack-$sdip_slug/$dest_folder_name"
+  set --global release_folder (pwd)"/dist/streamdeck-iconpack-$sdip_base_slug/$dest_folder_name"
   set --global src_folder (pwd)"/src/$sdip_slug"
   set --global tmp_folder (pwd)"/tmp/$sdip_slug"
 end
@@ -177,5 +177,5 @@ end
 function setup_working_folders
   echo "- Setting up folders"
   rm -rf $build_folder $tmp_folder $src_folder >/dev/null 2>&1
-  mkdir -p $build_dest_folder $build_dest_icon_folder $tmp_folder $src_folder
+  mkdir -p $build_dest_icon_folder $tmp_folder $src_folder
 end

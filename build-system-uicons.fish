@@ -2,8 +2,10 @@
 
 source ./_functions.fish
 
-set sdip_name 'System UIcons'
-set sdip_slug 'system-uicons'
+set sdip_base_name 'System UIcons'
+set sdip_base_slug 'system-uicons'
+set sdip_name "$sdip_base_name"
+set sdip_slug "$sdip_base_slug"
 
 say_hello
 set sdip_version (confirm_current_version)

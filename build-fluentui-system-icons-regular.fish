@@ -181,7 +181,7 @@ create_manifest_json_file \
   --author "Carlo Zottmann (icon pack), Microsoft (original icons)" \
   --desc "A free icon pack based on Microsoft's Fluent UI System Icons.  Consists of "(count $icon_files)" icons." \
   --icon 'icons/fluent.png' \
-  --tags 'microsoft,fluentui,fluent ui'
+  --tags 'microsoft, fluentui, fluent ui'
 
 optional_copy_to_local_sd_folder
 optional_copy_to_dist_folder

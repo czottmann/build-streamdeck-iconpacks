@@ -21,3 +21,26 @@ nav {
   justify-content: start;
   align-content: start;
 }
+
+.grid-item {
+  background: #f8f8f8;
+  box-shadow: 0.1rem 0.1rem 0.25rem rgba(128, 128, 128, 0.25);
+  display: block;
+}
+
+.grid-item-img {
+  display: block;
+}
+
+.grid-item-title {
+  display: block;
+  font-weight: bold;
+  margin: 0;
+  padding: 0.5em;
+}
+
+.grid-item-desc {
+  display: block;
+  margin: 0;
+  padding: 0.5em;
+}

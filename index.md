@@ -5,51 +5,48 @@
 </p>
 
 <div class="grid-container">
-  <div>
-    <a href="/fluentui-system-icons-filled">
-      <img
-        class="grid-item-img"
-        src="/img/screenshot-fluentui-system-icons-filled.png"
-        title="Screenshot of the Stream Deck Icon Library"
-      />
-    </a>
-    <a href="/fluentui-system-icons-filled" class="grid-item-title"
-      >Fluent UI System Icons (Filled)</a
-    >
-    <p class="grid-item-desc">
+  <a class="grid-item" href="/fluentui-system-icons-filled">
+    <img
+      class="grid-item-img"
+      src="/img/screenshot-fluentui-system-icons-filled.png"
+      title="Screenshot of the Stream Deck Icon Library"
+    />
+    <span class="grid-item-title">
+      Fluent UI System Icons (Filled)
+    </span>
+    <span class="grid-item-desc">
       1800+ monochrome icons, several with red/green alternatives.
-    </p>
+    </span>
   </div>
 
-  <div>
-    <a href="/fluentui-system-icons-regular">
-      <img
-        class="grid-item-img"
-        src="/img/screenshot-fluentui-system-icons-regular.png"
-        title="Screenshot of the Stream Deck Icon Library"
-      />
-    </a>
-    <a href="/fluentui-system-icons-regular" class="grid-item-title"
-      >Fluent UI System Icons (Regular)</a
-    >
-    <p class="grid-item-desc">
+  <div class="grid-item" href="/fluentui-system-icons-regular">
+    <img
+      class="grid-item-img"
+      src="/img/screenshot-fluentui-system-icons-regular.png"
+      title="Screenshot of the Stream Deck Icon Library"
+    />
+    <span class="grid-item-title">
+      Fluent UI System Icons (Regular)
+    </span>
+    <span class="grid-item-desc">
       1800+ monochrome icons, several with red/green alternatives.
-    </p>
-  </div>
+    </span>
 
-  <div>
-    <a href="/system-uicons">
-      <img
-        class="grid-item-img"
-        src="/img/screenshot-system-uicons.png"
-        title="Screenshot of the Stream Deck Icon Library"
-      />
-    </a>
-    <a href="/system-uicons" class="grid-item-title">System UIcons</a>
-    <p class="grid-item-desc">
+  </a>
+
+  <a class="grid-item" href="/system-uicons">
+    <img
+      class="grid-item-img"
+      src="/img/screenshot-system-uicons.png"
+      title="Screenshot of the Stream Deck Icon Library"
+    />
+    <span class="grid-item-title">
+      System UIcons
+    </span>
+    <span class="grid-item-desc">
       420+ monochrome icons, several with red/green alternatives.
-    </p>
-  </div>
+    </span>
+  </a>
 </div>
 
 <h2>Why</h2>

@@ -6,7 +6,7 @@ title: "Carlo's Stream Deck Icon Packs: <br/> Fluent UI System Icons (Filled)"
   <a href="/">Carlo's Stream Deck Icon Packs</a> → Fluent UI System Icons (Filled)
 </nav>
 
-# System UIcons
+# Fluent UI System Icons (Filled)
 
 This icon pack consists of 1800+ monochrome icons (PNG, 144×144px). Several of
 them come with red/green alternatives.

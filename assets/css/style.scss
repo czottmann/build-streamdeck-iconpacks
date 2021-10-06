@@ -13,3 +13,11 @@ nav {
   font-weight: bold;
   padding-bottom: 2rem;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 50%), auto));
+  gap: 1em;
+  justify-content: start;
+  align-content: start;
+}

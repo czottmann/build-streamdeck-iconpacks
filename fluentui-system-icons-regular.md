@@ -1,10 +1,9 @@
 ---
-title: "Carlo's Free Stream Deck Icon Packs → Fluent UI System Icons (Regular)"
+title: "Carlo's Stream Deck Icon Packs <br/> Fluent UI System Icons (Regular)"
 ---
 
-<script async defer data-website-id="8f8ff8a3-00ab-480a-bd18-d4da710d4e4e" src="https://umami.czm.io/umami.js"></script>
 <nav>
-  <a href="/">Carlo's Free Stream Deck Icon Packs</a> → Fluent UI System Icons (Regular)
+  <a href="/">Carlo's Stream Deck Icon Packs</a> → Fluent UI System Icons (Regular)
 </nav>
 
 # System UIcons

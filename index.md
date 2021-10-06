@@ -17,9 +17,9 @@
     <span class="grid-item-desc">
       1800+ monochrome icons, several with red/green alternatives.
     </span>
-  </div>
+  </a>
 
-  <div class="grid-item" href="/fluentui-system-icons-regular">
+  <a class="grid-item" href="/fluentui-system-icons-regular">
     <img
       class="grid-item-img"
       src="/img/screenshot-fluentui-system-icons-regular.png"
@@ -31,7 +31,6 @@
     <span class="grid-item-desc">
       1800+ monochrome icons, several with red/green alternatives.
     </span>
-
   </a>
 
   <a class="grid-item" href="/system-uicons">

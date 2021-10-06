@@ -1,5 +1,5 @@
 ---
-title: "Carlo's Stream Deck Icon Packs <br/> System UIcons"
+title: "Carlo's Stream Deck Icon Packs: <br/> System UIcons"
 ---
 
 <nav>

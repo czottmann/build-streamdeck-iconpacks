@@ -1,5 +1,5 @@
 ---
-title: "Carlo's Stream Deck Icon Packs <br/> Fluent UI System Icons (Filled)"
+title: "Carlo's Stream Deck Icon Packs: <br/> Fluent UI System Icons (Filled)"
 ---
 
 <nav>

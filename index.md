@@ -59,5 +59,5 @@
 
 <p>
   &copy; Carlo Zottmann (<a href="https://zottmann.org">website</a>,
-  <a href="https://github.com/carlo">Github</a>).
+  <a href="https://github.com/czottmann">Github</a>).
 </p>
